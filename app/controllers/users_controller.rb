@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.new(user_params) 
-    if @user.save 
+    if @user.save && verify_recaptcha(model: @user)
       session[:user_id] = @user.id 
       flash[:notice] = "Welcome to the Asset Manager #{@user.username}, you have successfully signed up" 
       redirect_to root_path
