@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to:'pages#about'
   get 'signup', to:'users#new'
+  post 'approve', to: 'users#approve'
+  post 'reject', to: 'users#reject'
   resources :users, except: [:new]
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

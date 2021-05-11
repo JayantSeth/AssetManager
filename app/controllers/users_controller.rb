@@ -19,6 +19,10 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def index 
+    @users = User.all 
+  end
+
   def update 
     if @user.update(user_params)
       flash[:notice] = "Your account information was successfully updated"
@@ -33,6 +37,28 @@ class UsersController < ApplicationController
     session[:user_id] = nil if @user == current_user 
     flash[:notice] = "Account is successfully deleted"
     redirect_to root_path 
+  end
+
+  def approve 
+    user = User.find(params[:the_user_id])
+    if !user.approved?
+      user.toggle!(:approved)
+      flash[:notice] = "User is approved"
+    else
+      flash[:notice] = "User is already approved"
+    end
+    redirect_to users_path
+  end
+
+  def reject 
+    user = User.find(params[:the_user_id]) 
+    if user.approved?
+      user.toggle!(:approved)
+      flash[:notice] = "User is disabled/rejected"
+    else
+      flash[:notice] = "User is already not approved"
+    end
+    redirect_to users_path
   end
 
   private 

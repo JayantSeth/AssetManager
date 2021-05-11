@@ -18,7 +18,7 @@
             Users
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">View all users</a>
+            <%= link_to "View all users", users_path, class: "dropdown-item" %>
             <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Delete your profile", user_path(current_user), method: :delete, class: "dropdown-item text-danger" %>
           </div>
