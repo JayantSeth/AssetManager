@@ -1,0 +1,13 @@
+<h1 class="text-center mt-4">Asset Type Details</h1>
+<div class="container text-white text-center">
+  <div class="jumbotron">
+    <p>Asset Type: <%= @asset_type.asset_type %></p> 
+    <p>Comment: <%= @asset_type.comment %></p>
+    <p>
+      <% if is_authorized? %>
+        <%= link_to "Edit", edit_asset_type_path(id: @asset_type.id), class: "btn btn-info" %> 
+        <%= link_to "Delete", asset_type_path(id: @asset_type.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      <% end %>
+    </p>
+  </div>
+</div>

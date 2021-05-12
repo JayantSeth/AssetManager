@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post 'reject', to: 'users#reject'
   resources :users, except: [:new]
   resources :departments
+  resources :asset_types
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

@@ -38,6 +38,17 @@
             <%= link_to "View departments", departments_path, class: "dropdown-item" %>
           </div>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Asset Type
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if is_authorized? %>
+            <%= link_to "New Asset Type", new_asset_type_path, class: "dropdown-item" %>
+            <% end %>
+            <%= link_to "View asset types", asset_types_path, class: "dropdown-item" %>
+          </div>
+        </li>
         <li class="nav-item">
           <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
         </li>
