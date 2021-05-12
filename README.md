@@ -20,4 +20,4 @@ AssetManager is a simple web based tool to keep a track of IT assets such as lap
 
 * Deployment instructions
 
-* ...
+

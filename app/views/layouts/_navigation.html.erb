@@ -1,5 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <% if logged_in? %>
+  <%= link_to "Asset Manager", users_path, class: "navbar-brand", id:"logo" %>
+  <% else %> 
   <%= link_to "Asset Manager", root_path, class: "navbar-brand", id:"logo" %>
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -21,6 +25,17 @@
             <%= link_to "View all users", users_path, class: "dropdown-item" %>
             <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Delete your profile", user_path(current_user), method: :delete, class: "dropdown-item text-danger" %>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Departments
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if is_authorized? %>
+            <%= link_to "New department", new_department_path, class: "dropdown-item" %>
+            <% end %>
+            <%= link_to "View departments", departments_path, class: "dropdown-item" %>
           </div>
         </li>
         <li class="nav-item">
