@@ -1,0 +1,14 @@
+<h1 class="text-center mt-4">Location Details</h1>
+<div class="container text-white text-center">
+  <div class="jumbotron">
+    <p>Location: <%= @location.location %></p> 
+    <p>Location Type: <%= all_location_types.find(@location.location_type_id).location_type %></p>
+    <p>Comment: <%= @location.comment %></p>
+    <p>
+      <% if is_authorized? %>
+        <%= link_to "Edit", edit_location_path(id: @location.id), class: "btn btn-info" %> 
+        <%= link_to "Delete", location_path(id: @location.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      <% end %>
+    </p>
+  </div>
+</div>

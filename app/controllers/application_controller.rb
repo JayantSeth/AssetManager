@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?, :is_authorized?, :all_asset_types
+  helper_method :current_user, :logged_in?, :is_authorized?, :all_asset_types, :all_location_types
   
   def current_user 
     @current_user ||= User.find(session[:user_id]) if session[:user_id] 
@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
   def all_asset_types 
     @asset_types ||= AssetType.all 
+  end
+
+  def all_location_types 
+    @location_types ||= LocationType.all 
   end
 
   def logged_in?
