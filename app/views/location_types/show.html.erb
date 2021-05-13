@@ -1,0 +1,13 @@
+<h1 class="text-center mt-4">Location Type Details</h1>
+<div class="container text-white text-center">
+  <div class="jumbotron">
+    <p>Location Type: <%= @location_type.location_type %></p> 
+    <p>Comment: <%= @location_type.comment %></p>
+    <p>
+      <% if is_authorized? %>
+        <%= link_to "Edit", edit_location_type_path(id: @location_type.id), class: "btn btn-info" %> 
+        <%= link_to "Delete", location_type_path(id: @location_type.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      <% end %>
+    </p>
+  </div>
+</div>

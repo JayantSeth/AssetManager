@@ -13,12 +13,9 @@
       <li class="nav-item active">
         <%= link_to "About me", about_path, class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
       <% if logged_in? %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle small" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Users
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -28,7 +25,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle small" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Departments
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -39,7 +36,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle small" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Asset Type
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -50,7 +47,18 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle small" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Location Type
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if is_authorized? %>
+            <%= link_to "New Location Type", new_location_type_path, class: "dropdown-item" %>
+            <% end %>
+            <%= link_to "View Location types", location_types_path, class: "dropdown-item" %>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle small" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Make Model
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -60,10 +68,10 @@
             <%= link_to "View Make Models", make_models_path, class: "dropdown-item" %>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item small">
           <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item small">
           <%= link_to 'Log out', logout_path, class: "nav-link", method: :delete %>
         </li>
       <% else %>
