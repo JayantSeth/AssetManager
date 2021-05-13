@@ -1,0 +1,15 @@
+<h1 class="text-center mt-4">Make Model Details</h1>
+<div class="container text-white text-center">
+  <div class="jumbotron">
+    <p>Make: <%= @make_model.make %></p> 
+    <p>Model: <%= @make_model.model %></p>
+    <p>Asset Type: <%= all_asset_types.find(@make_model.asset_type_id).asset_type %></p>
+    <p>Comment: <%= @make_model.comment %></p>
+    <p>
+      <% if is_authorized? %>
+        <%= link_to "Edit", edit_make_model_path(id: @make_model.id), class: "btn btn-info" %> 
+        <%= link_to "Delete", make_model_path(id: @make_model.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      <% end %>
+    </p>
+  </div>
+</div>
