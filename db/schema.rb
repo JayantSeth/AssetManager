@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_124501) do
+ActiveRecord::Schema.define(version: 2021_05_15_172605) do
 
   create_table "asset_types", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "asset_type"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 2021_05_13_124501) do
 
   create_table "departments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "department"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "enterprise_assets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "hostname"
+    t.string "serial_number"
+    t.integer "make_model_id"
+    t.string "warranty_start_date"
+    t.string "warranty_end_date"
+    t.boolean "is_instrument_machine", default: false
+    t.string "asset_status"
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

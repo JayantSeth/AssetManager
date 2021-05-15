@@ -78,6 +78,17 @@
             <%= link_to "View Make Models", make_models_path, class: "dropdown-item" %>
           </div>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle small" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Enterprise Asset
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if is_authorized? %>
+            <%= link_to "New Enterprise Asset", new_enterprise_asset_path, class: "dropdown-item" %>
+            <% end %>
+            <%= link_to "View Enterprise Assets", enterprise_assets_path, class: "dropdown-item" %>
+          </div>
+        </li>
         <li class="nav-item small">
           <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
         </li>

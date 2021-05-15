@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+        <%= render 'shared/errors', obj:@enterprise_asset %>
+        <%= form_with(model: @enterprise_asset, class: "shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
+          <div class="form-group row">
+            <%= f.label :Hostname, class: "col-2 col-form-label text-light" %>
+              <div class="col-10">
+                <%= f.text_field :hostname, class: "form-control shadow rounded", placeholder: "Enter hostname" %>
+              </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :"Serial Number", class: "col-2 col-form-label text-light" %>
+              <div class="col-10">
+                <%= f.text_field :serial_number, class: "form-control shadow rounded", placeholder: "Enter serial number" %>
+              </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :Model, class: "col-2 col-form-label text-light" %>
+              <div class="col-10">
+                <%= f.select :model, @make_models_list, {}, { class: "form-control shadow rounded" } %>
+              </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :"Warranty Start Date", class: "col-2 col-form-label text-light" %>
+              <div class="col-10">
+                <%= f.date_field :warranty_start_date, class: "form-control shadow rounded" %>
+              </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :"Warranty End Date", class: "col-2 col-form-label text-light" %>
+              <div class="col-10">
+                <%= f.date_field :warranty_end_date, class: "form-control shadow rounded" %>
+              </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :"Is Instrument Machine", class: "col-2 col-form-label text-light" %>
+              <div class="col-1">
+                <%= f.check_box :is_instrument_machine, class: "form-control shadow rounded" %>
+              </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :"Asset Status", class: "col-2 col-form-label text-light" %>
+              <div class="col-10">
+                <%= f.text_field :asset_status, class: "form-control shadow rounded", placeholder: "Enter asset status (In use, In stock, etc)" %>
+              </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :comment, class: "col-2 col-form-label text-light" %>
+              <div class="col-10">
+                <%= f.text_field :comment, class: "form-control shadow rounded", placeholder: "Enter a comment" %>
+              </div>
+          </div>
+          <div class="form-group row justify-content-center">
+            <%= f.submit(@enterprise_asset.new_record? ? "Create" : "Update", class: "btn btn-outline-light btn-lg") %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>

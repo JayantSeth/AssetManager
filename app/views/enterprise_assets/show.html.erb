@@ -1,0 +1,20 @@
+<h1 class="text-center mt-4">Asset Details</h1>
+<div class="container text-white text-center">
+  <div class="jumbotron">
+    <p>Hostname: <%= @enterprise_asset.hostname %></p> 
+    <p>Serial Number: <%= @enterprise_asset.serial_number %></p>
+    <p>Model: <%= all_make_models.find(@enterprise_asset.make_model_id).model %></p>
+    <p>Make: <%= all_make_models.find(@enterprise_asset.make_model_id).make %></p>
+    <p>Warranty Start Date: <%= @enterprise_asset.warranty_start_date %></p>
+    <p>Warranty End Date: <%= @enterprise_asset.warranty_end_date %></p>
+    <p>Is instrument machine: <%= @enterprise_asset.is_instrument_machine %></p>
+    <p>Asset Status: <%= @enterprise_asset.asset_status %></p>
+    <p>Comment: <%= @enterprise_asset.comment %></p>
+    <p>
+      <% if is_authorized? %>
+        <%= link_to "Edit", edit_enterprise_asset_path(id: @enterprise_asset.id), class: "btn btn-info" %> 
+        <%= link_to "Delete", enterprise_asset_path(id: @enterprise_asset.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      <% end %>
+    </p>
+  </div>
+</div>

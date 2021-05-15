@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <table class="table">
+    <thead class="thead-dark text-center">
+      <tr>
+        <th scope="col">Hostname</th>
+        <th scope="col">Serial Number</th>
+        <th scope="col">Model</th>
+        <th scope="col">Make</th>
+        <th scope="col">Warranty Start Date</th>
+        <th scope="col">Warranty End Date</th>
+        <th scope="col">Is Instrument Machine</th>
+        <th scope="col">Asset Status</th>
+        <th scope="col">Comment</th>
+        <th colspan="3">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @enterprise_assets.each do |enterprise_asset| %>
+        <tr class="text-center">
+          <td><%= enterprise_asset.hostname %></td>
+          <td><%= enterprise_asset.serial_number %></td>
+          <td><%= all_make_models.find(enterprise_asset.make_model_id).model %></td>
+          <td><%= all_make_models.find(enterprise_asset.make_model_id).make %></td>
+          <td><%= enterprise_asset.warranty_start_date %></td> 
+          <td><%= enterprise_asset.warranty_end_date %></td>
+          <td><%= enterprise_asset.is_instrument_machine %></td>
+          <td><%= enterprise_asset.asset_status %></td>
+          <td><%= enterprise_asset.comment %></td>
+          <td><%= link_to "View", enterprise_asset_path(id: enterprise_asset.id), class: "btn btn-success" %></td>
+          <% if is_authorized? %>
+            <td><%= link_to "Edit", edit_enterprise_asset_path(id: enterprise_asset.id), class: "btn btn-info" %></td>
+            <td><%= link_to "Delete", enterprise_asset_path(id: enterprise_asset.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
