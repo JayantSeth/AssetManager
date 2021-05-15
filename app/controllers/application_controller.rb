@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?, :is_authorized?, :all_asset_types, :all_location_types, :all_make_models
+  helper_method :current_user, :logged_in?, :is_authorized?, :all_asset_types, :all_location_types, :all_make_models, :get_asset_status_list
   
   def current_user 
     @current_user ||= User.find(session[:user_id]) if session[:user_id] 
@@ -37,5 +37,9 @@ class ApplicationController < ActionController::Base
 
   def is_authorized?
     current_user.approved? 
+  end
+
+  def get_asset_status_list 
+    @asset_status_list ||= ['In_Use', 'In_Stock', 'Scrap', 'Under_Repair'] 
   end
 end

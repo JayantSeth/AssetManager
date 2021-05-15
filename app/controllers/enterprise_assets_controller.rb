@@ -46,6 +46,7 @@ class EnterpriseAssetsController < ApplicationController
   private 
 
   def convert_to_date(date_as_string)
+    #expecting date format in "yyyy-mm-dd" format
     if date_as_string.length > 0
       split_date = date_as_string.split('-')
       return Date.new(year=split_date[0].to_i, month=split_date[1].to_i, 

@@ -42,7 +42,7 @@
           <div class="form-group row">
             <%= f.label :"Asset Status", class: "col-2 col-form-label text-light" %>
               <div class="col-10">
-                <%= f.text_field :asset_status, class: "form-control shadow rounded", placeholder: "Enter asset status (In use, In stock, etc)" %>
+                <%= f.select :asset_status, get_asset_status_list, {}, { class: "form-control shadow rounded" } %>
               </div>
           </div>
           <div class="form-group row">
