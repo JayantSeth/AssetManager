@@ -1,0 +1,19 @@
+<h1 class="text-center mt-4">Employee Details</h1>
+<div class="container text-white text-center">
+  <div class="jumbotron">
+    <p>Emp Name: <%= @employee.emp_name %></p> 
+    <p>Emp Code: <%= @employee.emp_code %></p> 
+    <p>Designation: <%= @employee.designation %></p> 
+    <p>Contact Number: <%= @employee.contact %></p> 
+    <p>Email ID: <%= @employee.email %></p> 
+    <p>Emp Joining Date: <%= @employee.emp_joining_date %></p> 
+    <p>Location: <%= all_locations.find(@employee.location_id).location %></p>
+    <p>Department: <%= all_departments.find(@employee.department_id).department %></p>
+    <p>
+      <% if is_authorized? %>
+        <%= link_to "Edit", edit_employee_path(id: @employee.id), class: "btn btn-info" %> 
+        <%= link_to "Delete", employee_path(id: @employee.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      <% end %>
+    </p>
+  </div>
+</div>

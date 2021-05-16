@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_15_172605) do
+ActiveRecord::Schema.define(version: 2021_05_16_063849) do
 
   create_table "asset_types", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "asset_type"
@@ -22,6 +22,19 @@ ActiveRecord::Schema.define(version: 2021_05_15_172605) do
   create_table "departments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "department"
     t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "employees", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "emp_name"
+    t.string "emp_code"
+    t.string "designation"
+    t.string "contact"
+    t.string "email"
+    t.datetime "emp_joining_date"
+    t.integer "department_id"
+    t.integer "location_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -71,6 +84,19 @@ ActiveRecord::Schema.define(version: 2021_05_15_172605) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "approved", default: false
+  end
+
+  create_table "workers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "emp_name"
+    t.string "emp_code"
+    t.string "designation"
+    t.string "contact"
+    t.string "email"
+    t.string "emp_joining_date"
+    t.integer "department_id"
+    t.integer "location_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

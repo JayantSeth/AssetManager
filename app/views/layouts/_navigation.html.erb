@@ -89,6 +89,17 @@
             <%= link_to "View Enterprise Assets", enterprise_assets_path, class: "dropdown-item" %>
           </div>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle small" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Employee
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if is_authorized? %>
+            <%= link_to "New employee", new_employee_path, class: "dropdown-item" %>
+            <% end %>
+            <%= link_to "View employees", employees_path, class: "dropdown-item" %>
+          </div>
+        </li>
         <li class="nav-item small">
           <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
         </li>
