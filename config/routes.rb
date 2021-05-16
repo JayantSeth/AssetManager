@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :locations 
   resources :enterprise_assets 
   resources :employees
+  resources :employee_assets
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

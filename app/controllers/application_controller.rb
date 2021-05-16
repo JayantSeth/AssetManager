@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?, :is_authorized?, :all_asset_types, :all_location_types, :all_make_models, :get_asset_status_list
-  helper_method :all_locations, :all_departments
+  helper_method :all_locations, :all_departments, :all_employees, :all_assets
   
   def current_user 
     @current_user ||= User.find(session[:user_id]) if session[:user_id] 
@@ -24,6 +24,14 @@ class ApplicationController < ActionController::Base
 
   def all_locations 
     @locations ||= Location.all 
+  end
+
+  def all_employees 
+    @employees ||= Employee.all 
+  end
+
+  def all_assets 
+    @assets ||= EnterpriseAsset.all 
   end
 
   def logged_in?
