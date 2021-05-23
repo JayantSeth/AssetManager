@@ -1,19 +1,19 @@
 <h1 class="text-center mt-4">Employee Asset Details</h1>
 <div class="container text-white text-center">
   <div class="jumbotron">
-    <p>Emp Name: <%= all_employees.find(@employee_asset.employee_id).emp_name %></p> 
-    <p>Emp Code: <%= all_employees.find(@employee_asset.employee_id).emp_code %></p> 
-    <p>Designation: <%= all_employees.find(@employee_asset.employee_id).designation %></p> 
-    <p>Contact Number: <%= all_employees.find(@employee_asset.employee_id).contact %></p> 
-    <p>Email ID: <%= all_employees.find(@employee_asset.employee_id).email %></p> 
-    <p>Emp Joining Date: <%= all_employees.find(@employee_asset.employee_id).emp_joining_date %></p> 
-    <p>Location: <%= all_locations.find(all_employees.find(@employee_asset.employee_id).location_id).location %></p>
-    <p>Department: <%= all_departments.find(all_employees.find(@employee_asset.employee_id).department_id).department %></p>
-    <p>Hostname: <%= all_assets.find(@employee_asset.enterprise_asset_id).hostname %></p>
-    <p>Serial Number: <%= all_assets.find(@employee_asset.enterprise_asset_id).serial_number %></p>
-    <p>Make: <%= all_make_models.find(all_assets.find(@employee_asset.enterprise_asset_id).make_model_id).make %></p>
-    <p>Model: <%= all_make_models.find(all_assets.find(@employee_asset.enterprise_asset_id).make_model_id).model %></p>
-    <p>Asset Type: <%= all_asset_types.find(all_make_models.find(all_assets.find(@employee_asset.enterprise_asset_id).make_model_id).asset_type_id).asset_type %></p>
+    <p>Emp Name: <%= @employee_asset.employee.emp_name %></p> 
+    <p>Emp Code: <%= @employee_asset.employee.emp_code %></p> 
+    <p>Designation: <%= @employee_asset.employee.designation %></p> 
+    <p>Contact Number: <%= @employee_asset.employee.contact %></p> 
+    <p>Email ID: <%= @employee_asset.employee.email %></p> 
+    <p>Emp Joining Date: <%= @employee_asset.employee.emp_joining_date %></p> 
+    <p>Location: <%= @employee_asset.employee.location.location %></p>
+    <p>Department: <%= @employee_asset.employee.department.department %></p>
+    <p>Hostname: <%= @employee_asset.enterprise_asset.hostname %></p>
+    <p>Serial Number: <%= @employee_asset.enterprise_asset.serial_number %></p>
+    <p>Make: <%= @employee_asset.enterprise_asset.make_model.make %></p>
+    <p>Model: <%= @employee_asset.enterprise_asset.make_model.model %></p>
+    <p>Asset Type: <%= @employee_asset.enterprise_asset.make_model.asset_type.asset_type %></p>
     <p>
       <% if is_authorized? %>
         <%= link_to "Edit", edit_employee_asset_path(id: @employee_asset.id), class: "btn btn-info" %> 

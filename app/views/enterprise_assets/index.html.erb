@@ -19,8 +19,8 @@
         <tr class="text-center">
           <td><%= enterprise_asset.hostname %></td>
           <td><%= enterprise_asset.serial_number %></td>
-          <td><%= all_make_models.find(enterprise_asset.make_model_id).model %></td>
-          <td><%= all_make_models.find(enterprise_asset.make_model_id).make %></td>
+          <td><%= enterprise_asset.make_model.model %></td>
+          <td><%= enterprise_asset.make_model.make %></td>
           <td><%= enterprise_asset.warranty_start_date %></td> 
           <td><%= enterprise_asset.warranty_end_date %></td>
           <td><%= enterprise_asset.is_instrument_machine %></td>

@@ -3,8 +3,8 @@
   <div class="jumbotron">
     <p>Hostname: <%= @enterprise_asset.hostname %></p> 
     <p>Serial Number: <%= @enterprise_asset.serial_number %></p>
-    <p>Model: <%= all_make_models.find(@enterprise_asset.make_model_id).model %></p>
-    <p>Make: <%= all_make_models.find(@enterprise_asset.make_model_id).make %></p>
+    <p>Model: <%= @enterprise_asset.make_model.model %></p>
+    <p>Make: <%= @enterprise_asset.make_model.make %></p>
     <p>Warranty Start Date: <%= @enterprise_asset.warranty_start_date %></p>
     <p>Warranty End Date: <%= @enterprise_asset.warranty_end_date %></p>
     <p>Is instrument machine: <%= @enterprise_asset.is_instrument_machine %></p>

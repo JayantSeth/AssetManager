@@ -1,5 +1,5 @@
-<div class="container mt-4">
-  <table class="table">
+<div class="container mt-4", style="height: 500px;overflow: scroll">
+  <table class="table table-sm">
     <thead class="thead-dark text-center">
       <tr>
         <th scope="col">Emp Name</th>
@@ -21,18 +21,18 @@
     <tbody>
       <% @employee_assets.each do |employee_asset| %>
         <tr class="text-center">
-          <td><%= all_employees.find(employee_asset.employee_id).emp_name %></td>
-          <td><%= all_employees.find(employee_asset.employee_id).emp_code %></td>
-          <td><%= all_employees.find(employee_asset.employee_id).designation %></td>
-          <td><%= all_employees.find(employee_asset.employee_id).contact %></td>
-          <td><%= all_employees.find(employee_asset.employee_id).email %></td>
-          <td><%= all_employees.find(employee_asset.employee_id).emp_joining_date %></td>
-          <td><%= all_departments.find(all_employees.find(employee_asset.employee_id).department_id).department %></td>
-          <td><%= all_locations.find(all_employees.find(employee_asset.employee_id).location_id).location %></td>
-          <td><%= all_assets.find(employee_asset.enterprise_asset_id).hostname %></td> 
-          <td><%= all_make_models.find(all_assets.find(employee_asset.enterprise_asset_id).make_model_id).make %></td> 
-          <td><%= all_make_models.find(all_assets.find(employee_asset.enterprise_asset_id).make_model_id).model %></td> 
-          <td><%= all_asset_types.find(all_make_models.find(all_assets.find(employee_asset.enterprise_asset_id).make_model_id).asset_type_id).asset_type %></td> 
+          <td><%= employee_asset.employee.emp_name %></td>
+          <td><%= employee_asset.employee.emp_code %></td>
+          <td><%= employee_asset.employee.designation %></td>
+          <td><%= employee_asset.employee.contact %></td>
+          <td><%= employee_asset.employee.email %></td>
+          <td><%= employee_asset.employee.emp_joining_date %></td>
+          <td><%= employee_asset.employee.department.department %></td>
+          <td><%= employee_asset.employee.location.location %></td>
+          <td><%= employee_asset.enterprise_asset.hostname %></td> 
+          <td><%= employee_asset.enterprise_asset.make_model.make %></td> 
+          <td><%= employee_asset.enterprise_asset.make_model.model %></td> 
+          <td><%= employee_asset.enterprise_asset.make_model.asset_type.asset_type %></td> 
           <td><%= link_to "View", employee_asset_path(id: employee_asset.id), class: "btn btn-success" %></td>
           <% if is_authorized? %>
             <td><%= link_to "Edit", edit_employee_asset_path(id: employee_asset.id), class: "btn btn-info" %></td>

@@ -45,11 +45,7 @@ class MakeModelsController < ApplicationController
 
   private 
   def make_model_params 
-    new_params = {}
-    tmp_params = params.require(:make_model).permit(:make, :model, :asset_type, :comment)
-    asset_type_id = AssetType.find_by(asset_type: tmp_params[:asset_type])[:id]
-    {make: tmp_params[:make], model: tmp_params[:model], 
-    asset_type_id: asset_type_id, comment: tmp_params[:comment]}
+    params.require(:make_model).permit(:make, :model, :asset_type_id, :comment)
   end
 
   def set_make_model 

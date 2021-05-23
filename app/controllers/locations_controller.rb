@@ -45,11 +45,7 @@ class LocationsController < ApplicationController
 
   private 
   def location_params 
-    new_params = {}
-    tmp_params = params.require(:location).permit(:location, :location_type, :comment)
-    location_type_id = LocationType.find_by(location_type: tmp_params[:location_type])[:id]
-    {location: tmp_params[:location], location_type_id: location_type_id, 
-    comment: tmp_params[:comment]}
+    params.require(:location).permit(:location, :location_type_id, :comment)
   end
 
   def set_location 

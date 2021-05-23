@@ -1,6 +1,6 @@
 class EnterpriseAsset < ApplicationRecord 
   before_save { self.hostname = hostname.upcase }
-  belongs_to :make_model
+  belongs_to :make_model 
   validates :hostname, presence: true, uniqueness: { case_sensitive: false},
                         length: {minimum: 2, maximum: 25} 
   validates :serial_number, presence: true, uniqueness: { case_sensitive: false},

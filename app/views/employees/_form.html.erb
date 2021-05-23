@@ -42,13 +42,15 @@
           <div class="form-group row">
             <%= f.label :Location, class: "col-2 col-form-label text-light" %>
               <div class="col-10">
-                <%= f.select :location, @locations_list, {}, { class: "form-control shadow rounded" } %>
+                <%= f.collection_select(:location_id, Location.all, :id, :location, {}, 
+                { class: "form-control shadow rounded" }) %>
               </div>
           </div>
           <div class="form-group row">
             <%= f.label :Department, class: "col-2 col-form-label text-light" %>
               <div class="col-10">
-                <%= f.select :department, @departments_list, {}, { class: "form-control shadow rounded" } %>
+                <%= f.collection_select(:department_id, Department.all, :id, :department, {}, 
+                { class: "form-control shadow rounded" }) %>
               </div>
           </div>
           <div class="form-group row justify-content-center">

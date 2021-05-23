@@ -12,7 +12,8 @@
           <div class="form-group row">
             <%= f.label :Location_Type, class: "col-2 col-form-label text-light" %>
               <div class="col-10">
-                <%= f.select :location_type, @location_types_list, {}, { class: "form-control shadow rounded" } %>
+                <%= f.collection_select( :location_type_id, LocationType.all, :id, :location_type, {}, 
+                { class: "form-control shadow rounded" }) %>
               </div>
           </div>
           <div class="form-group row">

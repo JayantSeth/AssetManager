@@ -22,10 +22,16 @@
               </div>
           </div>
           <div class="form-group row justify-content-center">
-            <%= recaptcha_tags %>
-            <%= f.submit(@user.new_record? ? "Sign up" : "update account", class: "btn btn-outline-light btn-lg") %>
+              <div class="mt-2">
+                <%= recaptcha_tags align: "center" %>
+              </div>
           </div>
-        <% end %>
+          <div class="form-group row justify-content-center">
+            <div class="text-center mt-2">
+               <%= f.submit(@user.new_record? ? "Sign up" : "update account", class: "btn btn-outline-light btn-lg shadow rounded") %>
+            </div>
+          </div>
+          <% end %>
     </div>
   </div>
 </div>

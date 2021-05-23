@@ -46,12 +46,7 @@ class EmployeeAssetsController < ApplicationController
 
   private 
   def employee_asset_params 
-    new_params = {}
-    tmp_params = params.require(:employee_asset).permit(:emp_code, :serial_number, :comment)
-    employee_id = Employee.find_by(emp_code: tmp_params[:emp_code])[:id]
-    asset_id = EnterpriseAsset.find_by(serial_number: tmp_params[:serial_number])[:id]
-    {employee_id: employee_id, enterprise_asset_id: asset_id, 
-    comment: tmp_params[:comment]}
+    params.require(:employee_asset).permit(:employee_id, :enterprise_asset_id, :comment)
   end
 
   def set_employee_asset 

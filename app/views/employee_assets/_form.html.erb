@@ -6,13 +6,15 @@
           <div class="form-group row">
             <%= f.label :"Employee Code", class: "col-2 col-form-label text-light" %>
               <div class="col-10">
-                <%= f.select :emp_code, @employees_list, {}, { class: "form-control shadow rounded" } %>
+                <%= f.collection_select(:employee_id, Employee.all, :id, :emp_name, {}, 
+                { class: "form-control shadow rounded" }) %>
               </div>
           </div>
           <div class="form-group row">
             <%= f.label :"Asset Serial Number", class: "col-2 col-form-label text-light" %>
               <div class="col-10">
-                <%= f.select :serial_number, @assets_list, {}, { class: "form-control shadow rounded" } %>
+                <%= f.collection_select(:enterprise_asset_id, EnterpriseAsset.all, :id, :serial_number, {}, 
+                { class: "form-control shadow rounded" }) %>
               </div>
           </div>
           <div class="form-group row">

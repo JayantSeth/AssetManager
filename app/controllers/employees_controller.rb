@@ -46,16 +46,8 @@ class EmployeesController < ApplicationController
 
   private 
   def employee_params 
-    new_params = {}
-    tmp_params = params.require(:employee).permit(:emp_name, 
-    :emp_code, :designation, :contact, :email, :emp_joining_date, 
-    :department, :location)
-    department_id = Department.find_by(department: tmp_params[:department])[:id]
-    location_id = Location.find_by(location: tmp_params[:location])[:id]
-    {emp_name: tmp_params[:emp_name], emp_code: tmp_params[:emp_code], 
-    designation: tmp_params[:designation], contact: tmp_params[:contact], 
-    email: tmp_params[:email], emp_joining_date: tmp_params[:emp_joining_date], 
-    department_id: department_id, location_id: location_id}
+    params.require(:employee).permit(:emp_name, :emp_code, :designation, 
+    :contact, :email, :emp_joining_date, :department_id, :location_id)
   end
 
   def set_employee 

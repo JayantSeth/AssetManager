@@ -57,17 +57,17 @@ class EnterpriseAssetsController < ApplicationController
   end 
 
   def enterprise_asset_params 
-    new_params = {}
-    tmp_params = params.require(:enterprise_asset).permit(:hostname, :serial_number, 
-    :model, :warranty_start_date, :warranty_end_date, 
+    # new_params = {}
+    params.require(:enterprise_asset).permit(:hostname, :serial_number, 
+    :make_model_id, :warranty_start_date, :warranty_end_date, 
     :is_instrument_machine, :asset_status, :comment)
-    make_model_id = MakeModel.find_by(model: tmp_params[:model])[:id]
-    {hostname: tmp_params[:hostname], serial_number: tmp_params[:serial_number], 
-    make_model_id: make_model_id,
-    warranty_start_date: convert_to_date(tmp_params[:warranty_start_date]), 
-    warranty_end_date: convert_to_date(tmp_params[:warranty_end_date]), 
-    is_instrument_machine: tmp_params[:is_instrument_machine], 
-    asset_status: tmp_params[:asset_status], comment: tmp_params[:comment]}
+    # make_model_id = MakeModel.find_by(model: tmp_params[:model])[:id]
+    # {hostname: tmp_params[:hostname], serial_number: tmp_params[:serial_number], 
+    # make_model_id: make_model_id,
+    # warranty_start_date: tmp_params[:warranty_start_date], 
+    # warranty_end_date: tmp_params[:warranty_end_date], 
+    # is_instrument_machine: tmp_params[:is_instrument_machine], 
+    # asset_status: tmp_params[:asset_status], comment: tmp_params[:comment]}
   end
 
   def set_enterprise_asset 

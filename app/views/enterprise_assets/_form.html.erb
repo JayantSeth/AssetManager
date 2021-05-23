@@ -18,7 +18,8 @@
           <div class="form-group row">
             <%= f.label :Model, class: "col-2 col-form-label text-light" %>
               <div class="col-10">
-                <%= f.select :model, @make_models_list, {}, { class: "form-control shadow rounded" } %>
+                <%= f.collection_select(:make_model_id, MakeModel.all, :id, :model, {},
+                { class: "custom-select shadow rounded" }) %>
               </div>
           </div>
           <div class="form-group row">
