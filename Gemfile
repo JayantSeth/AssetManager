@@ -61,3 +61,8 @@ gem 'capistrano', '~> 3.11'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+
+#Gems required for testing 
+gem 'rexml', '~> 3.2', '>= 3.2.4'
+gem 'minitest', group: :test 
+gem 'minitest-reporters', group: :test
